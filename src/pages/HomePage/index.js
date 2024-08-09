@@ -15,15 +15,11 @@ import serv8 from "../../assets/img/serv8.png"
 import bannerLarge from "../../assets/img/banner-image-large.png";
 import bannerTow from "../../assets/img/Banner Image Two.jpg";
 import aboutCenter from "../../assets/img/ellipse-center.png";
-import doctor1 from "../../assets/img/doctors-1.jpg";
-import doctor2 from "../../assets/img/doctors-2.jpg";
-import doctor3 from "../../assets/img/doctors-3.jpg";
-import doctor4 from "../../assets/img/doctors-4.jpg";
+import photo from "../../assets/img/avatar1.png";
 import { TbBrandThreads } from "react-icons/tb";
 import { MdLocationOn } from "react-icons/md";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { IoSearchSharp } from "react-icons/io5";
-import { FaStar } from "react-icons/fa6";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
@@ -35,6 +31,11 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { RingLoader } from "react-spinners";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import ViewDoctor from "../../Components/ViewDoctor/ViewDoctor";
 
 function Number({ n }) {
   const { number } = useSpring({
@@ -98,8 +99,43 @@ export default function HomePage() {
     sliderRef.current.slickPrev();
   };
 
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getAllAdmins();
+  }, []);
+
+  function getAllAdmins() {
+    setLoading(true);
+    axios
+      .get("https://boody-magdy.vercel.app/api/users")
+      .then((response) => {
+        const adminUsers = response.data.filter(
+          (user) => user.role === "admin"
+        );
+        setUsers(adminUsers);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching admin users:", error);
+        setLoading(false);
+      });
+  }
+
+
   return (
     <div className="home container m-auto py-5">
+       {loading && (
+          <div className="loading-overlay">
+            <RingLoader
+              color={"#fff"}
+              loading={loading}
+              size={150}
+              className="loading-spinner"
+            />
+          </div>
+        )}
       <div className="row py-3">
         <div className="center-element align-items-start text col-lg-6 col-md-12">
           <h1 className="wow animate__animated animate__lightSpeedInLeft">
@@ -435,90 +471,23 @@ export default function HomePage() {
           </div>
           {/* our doctors */}
           <div className="row my-3">
-            <div className="col-lg-3 col-md-6 mb-3">
-              <div className="doctor-card rounded">
-                <img src={doctor1} alt="doctor1" />
-                <div className="caption p-3">
-                  <h3 className="main-header">Ophthalmologist</h3>
-                  <h2>Dr. David Martin</h2>
-                  <p className="d-flex align-items-center">
-                    <span>
-                      <FaStar />
-                    </span>{" "}
-                    4.8 (112 Review)
-                  </p>
-                  <p className="d-flex align-items-center toAppointment">
-                    <Link to="/APPOINTMENT "> Book Appointment </Link>
-                    <span>
-                      <MdKeyboardDoubleArrowRight />
-                    </span>
-                  </p>
-                </div>
+          <div className="doctors className='wow animate__animated animate__fadeInDownBig animate__slow 1s'">
+          {users.map((user) => (
+            <div key={user._id} className="doctor">
+              <img src={photo} alt="doc-1" />
+              <div className="social-doc p-2">
+                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faFacebook} />
+                <FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon icon={faLinkedin} />
+              </div>
+              <div className="text-doc">
+                <h2>{user.fullName}</h2>
+                <ViewDoctor user={user} />
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 mb-3">
-              <div className="doctor-card rounded">
-                <img src={doctor2} alt="doctor1" />
-                <div className="caption p-3">
-                  <h3 className="main-header">Ophthalmologist</h3>
-                  <h2>Dr. David Martin</h2>
-                  <p className="d-flex align-items-center">
-                    <span>
-                      <FaStar />
-                    </span>{" "}
-                    4.8 (112 Review)
-                  </p>
-                  <p className="d-flex align-items-center toAppointment">
-                    <Link to="/APPOINTMENT "> Book Appointment </Link>
-                    <span>
-                      <MdKeyboardDoubleArrowRight />
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 mb-3">
-              <div className="doctor-card rounded">
-                <img src={doctor3} alt="doctor1" />
-                <div className="caption p-3">
-                  <h3 className="main-header">Ophthalmologist</h3>
-                  <h2>Dr. David Martin</h2>
-                  <p className="d-flex align-items-center">
-                    <span>
-                      <FaStar />
-                    </span>{" "}
-                    4.8 (112 Review)
-                  </p>
-                  <p className="d-flex align-items-center toAppointment">
-                    <Link to="/APPOINTMENT "> Book Appointment </Link>
-                    <span>
-                      <MdKeyboardDoubleArrowRight />
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 mb-3">
-              <div className="doctor-card rounded">
-                <img src={doctor4} alt="doctor1" />
-                <div className="caption p-3">
-                  <h3 className="main-header">Ophthalmologist</h3>
-                  <h2>Dr. David Martin</h2>
-                  <p className="d-flex align-items-center">
-                    <span>
-                      <FaStar />
-                    </span>{" "}
-                    4.8 (112 Review)
-                  </p>
-                  <p className="d-flex align-items-center toAppointment">
-                    <Link to="/APPOINTMENT "> Book Appointment </Link>
-                    <span>
-                      <MdKeyboardDoubleArrowRight />
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
+          ))}
+        </div>
           </div>
         </div>
       </div>
