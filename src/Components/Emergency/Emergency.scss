@@ -1,0 +1,35 @@
+.emergency{
+   background-color: var(--blueColor); 
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   padding: 40px 20px;
+   h1{
+    font-size: 22px;
+    font-weight: 800;
+    @media screen and (max-width:767px){
+        font-size: 18px;
+    }
+   }
+   p{
+    text-align: center;
+    width: 90%;
+    padding: 20px 0;
+    font-weight: 500;
+    
+   }
+   .btn{
+    color: white;
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    
+    :hover{
+        color: var(--blueColor); 
+        background-color: white;
+    }
+   }
+}

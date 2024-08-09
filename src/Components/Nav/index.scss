@@ -1,0 +1,24 @@
+.logo{
+    width: 115px;
+    
+}
+
+.links {
+    z-index: 2;
+   @media screen and (max-width:767px) {
+    margin-top: 20px;
+   }
+}
+
+.z-ind{
+    position: absolute;
+    z-index: 4;
+    border: 1px solid #313131;
+    color: #313131;
+    border-radius: 4px;
+}
+button{
+    :hover{
+        color: black;
+    }
+}

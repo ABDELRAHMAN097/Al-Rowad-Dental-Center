@@ -1,0 +1,39 @@
+.orth{
+    padding: 0 10px;
+}
+.hero{
+    background-color: var(--blueColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px 20px;
+    gap: 2rem;
+    h2{
+        font-weight: 500;
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    p{
+        text-align: center;
+    }
+}
+.info{
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    span{
+        font-weight: 500;
+    }
+    p{
+        color: var(--fontColor);
+    }
+}
+.img{
+    border-radius: 14px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+}

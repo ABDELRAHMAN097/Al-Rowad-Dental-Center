@@ -1,0 +1,312 @@
+.home {
+  .text {
+    h1 {
+      color: var(--mainFont-color);
+      font-size: 56px;
+      font-weight: 700;
+      @media screen and (max-width: 767px) {
+        font-size: 36px;
+      }
+    }
+    span {
+      color: var(--primary-color);
+    }
+  }
+  
+  .icon-location {
+    color: #3e87fa;
+    background-color: #bad6ff;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 36px;
+  }
+  .icon-doctor {
+    color: #fd6f6d;
+    background-color: #fef0ef;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 36px;
+  }
+  .search {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border-radius: 7px;
+    padding: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+    @media screen and (max-width: 767px) {
+      margin-top: 5px;
+    }
+  }
+  .search:hover {
+    background-color: var(--mainFont-color);
+  }
+  .selector {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
+  }
+  select {
+    border: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .intro-bg {
+    margin-bottom: 70px;
+    margin-top: 40px;
+  }
+}
+.doctor-intro{
+  @media screen and (max-width: 767px){
+    left: 50%;
+  }
+}
+.rerectangle{
+  @media screen and (max-width: 767px){
+    left: 152px;
+    width: 40px;
+  }
+}
+.doc-intro {
+  max-width: 280px;
+  @media screen and (max-width: 767px) {
+    max-width: 160px;
+  }
+}
+.animate__slower-custom {
+  animation-duration: 20s;
+}
+.Threads {
+  color: var(--primary-color);
+  font-size: 86px;
+  margin-top: 150px;
+  @media screen and (max-width: 767px) {
+    font-size: 48px;
+    margin-top: 80px;
+  }
+}
+// services
+
+.margTop {
+  margin-top: 10px;
+  margin-top: 10px;
+ 
+  @media screen and (max-width: 966px) {
+    margin-top: 270px;
+  }
+
+  @media screen and (max-width: 570px) {
+    margin-top: 100px;
+  }
+}
+
+
+.head-section {
+  p {
+    color: var(--mainFont-color);
+    font-size: 30px;
+    font-weight: 700;
+    max-width: 380px;
+    @media screen and (max-width: 767px) {
+      font-size: 24px;
+    }
+  }
+}
+.slider{
+  .arrow-color{
+    color: var(--primary-color);
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+.serv-box {
+  .photo {
+    display: flex;
+    justify-content: center;
+    .img-wrapper {
+      width: 80px; 
+      height: 80px; 
+      background-color: #ecf9f2;
+      border-radius: 50%; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  span {
+    color: var(--primary-color);
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+// end services
+// about
+.margin {
+  @media screen and (max-width: 767px) {
+    margin-top: 80px;
+  }
+}
+.about-animation{
+  @media screen and (max-width: 767px) {
+        width: 80%;
+        margin: auto;
+        margin-top: 40px;
+  }
+}
+.about {
+  .sm-patagraph {
+    font-size: 16px !important;
+    max-width: 80% !important;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .left-border {
+    border-left: 4px solid var(--primary-color);
+  }
+  .back-doctor {
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 290px;
+    border-bottom-right-radius: 18px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+  .bannerLarge {
+    border-bottom-left-radius: 290px;
+    max-width: 580px;
+    @media screen and (max-width: 767px) {
+      width: 150px;
+    }
+  }
+  .triangle-size {
+    width: 48px;
+    @media screen and (max-width: 767px) {
+      width: 28px;
+    }
+  }
+  .top-triangle {
+    left: -62px;
+    top: 7px;
+    @media screen and (max-width: 767px) {
+      width: 28px;
+    }
+  }
+  .bottom-triangle {
+    left: -62px;
+    top: 140px;
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(-12deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    will-change: transform;
+    @media screen and (max-width: 767px) {
+      width: 28px;
+    }
+  }
+  .bannerTow {
+    max-width: 310px;
+    border-top-left-radius: 180px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border: #ffffff solid 11px;
+    @media screen and (max-width: 767px) {
+      width: 115px;
+    }
+  }
+  .banner-sm {
+    position: absolute;
+    bottom: -80px;
+    left: -110px;
+    @media screen and (max-width: 767px) {
+      bottom: -49px;
+      left: -64px;
+    }
+  }
+  .triangle-bottom {
+    left: 210px;
+    bottom: -55px;
+    @media screen and (max-width: 767px) {
+      left: 100px;
+    }
+  }
+}
+// end about
+// our doctor
+
+.doctor-card {
+  border: #c7c7c7d5 1px solid;
+  transition: all ease 0.5s;
+  @media screen and (width: 767px) {
+    margin-bottom: 1rem;
+  }
+}
+.doctor-card :hover {
+  h3 {
+    font-size: 12px;
+    color: white;
+    background-color: var(--primary-color);
+  }
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+  transition: all ease 0.5s;
+
+  img {
+    width: 100%;
+  }
+  h3 {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  span {
+    color: var(--primary-color);
+    margin-right: 5px;
+  }
+  .toAppointment {
+    color: #000;
+    span {
+      color: #000;
+      margin-left: 5px;
+    }
+  }
+  &:hover {
+    img {
+      transform: scale(1.5);
+    }
+    .toAppointment {
+      color: var(--primary-color);
+      span {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
