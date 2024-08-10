@@ -111,7 +111,7 @@ export default function Index() {
 					<button className="btn" type="submit">send</button>
 				</form>
 			</div>
-      			<iframe className="wow animate__animated animate__fadeInDownBig animate__slow 2s"
+      			<iframe className="wow animate__animated animate__fadeInDownBig"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.216500058123!2d31.0384556!3d30.429964000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458792accd968c3%3A0xb10417bfe674a499!2z2YXYsdmD2LIg2KfZhNix2YjYp9ivINmE2LfYqCDYp9mE2KfYs9mG2KfZhiDYqNin2YTYqNin2KzZiNix!5e0!3m2!1sen!2seg!4v1722867431773!5m2!1sen!2seg"
 					width="100%"
 					height="400"
