@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Appointment.scss";
 import appointPhoto from '../../assets/img/appointment.jpg';
 import axios from "axios";
 import { toast } from "react-toastify";
 import { RingLoader } from "react-spinners";
+import { useRecoilValue } from "recoil";
+import { formVisibilityState } from "../../store/formState"; // استيراد الـ Atom
 
 export default function Index() {
+  const showForm = useRecoilValue(formVisibilityState); // استخدام الـ Atom للتحقق من حالة الظهور
   const [users, setUsers] = useState([]);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -141,77 +144,79 @@ export default function Index() {
         <h1 className="main-header">book an appointment</h1>
         
         <p className="mb-3">
-        Please choose your preferred doctor from the available list. Please select a date
+          Please choose your preferred doctor from the available list. Please select a date
           And the appropriate time for you, according to your specialty, for the medical appointment. After setting the appointment, it is requested
           You must confirm your reservation to complete the process. Thank you for using our hospital booking system
           Email. We look forward to serving you and providing you with appropriate health care.
         </p>
 
-        <form onSubmit={handelAppointment}>
-          <div className="appoint-photo">
-            <img src={appointPhoto} alt="appointPhoto" />
-          </div>
-          <div className="inputs">
-            <div className="input-group">
-              <label htmlFor="">name</label>
-              <input
-                className="input-Appoint"
-                type="text"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder=":name"
-              />
-              {nameError && <span className="error-message">{nameError}</span>}
+        {showForm && (
+          <form onSubmit={handelAppointment}>
+            <div className="appoint-photo">
+              <img src={appointPhoto} alt="appointPhoto" />
             </div>
+            <div className="inputs">
+              <div className="input-group">
+                <label htmlFor="">name</label>
+                <input
+                  className="input-Appoint"
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder=":name"
+                />
+                {nameError && <span className="error-message">{nameError}</span>}
+              </div>
 
-            <div className="input-group">
-              <label htmlFor="">time</label>
-              <input
-                className="input-Appoint"
-                type="time"
-                name="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                placeholder=":time"
-              />
-              {timeError && <span className="error-message">{timeError}</span>}
-            </div>
+              <div className="input-group">
+                <label htmlFor="">time</label>
+                <input
+                  className="input-Appoint"
+                  type="time"
+                  name="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  placeholder=":time"
+                />
+                {timeError && <span className="error-message">{timeError}</span>}
+              </div>
 
-            <div className="input-group">
-              <label htmlFor="">date</label>
-              <input
-                className="input-Appoint"
-                type="date"
-                name="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                placeholder=":date"
-              />
-              {dateError && <span className="error-message">{dateError}</span>}
-            </div>
+              <div className="input-group">
+                <label htmlFor="">date</label>
+                <input
+                  className="input-Appoint"
+                  type="date"
+                  name="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder=":date"
+                />
+                {dateError && <span className="error-message">{dateError}</span>}
+              </div>
 
-            <div className="input-group">
-              <label htmlFor="">doctors</label>
-              <select
-                className="input-Appoint specialty form-control w-100"
-                name="doctor"
-                value={doctor}
-                onChange={(e) => setDoctor(e.target.value)}
-              >
-                <option value="">Choose your doctor</option>
-                {users.map((user) => (
-                  <option key={user._id} value={user.fullName}>{user.fullName}</option>
-                ))}
-              </select>
-              {doctorError && <span className="error-message">{doctorError}</span>}
-            </div>
+              <div className="input-group">
+                <label htmlFor="">doctors</label>
+                <select
+                  className="input-Appoint specialty form-control w-100"
+                  name="doctor"
+                  value={doctor}
+                  onChange={(e) => setDoctor(e.target.value)}
+                >
+                  <option value="">Choose your doctor</option>
+                  {users.map((user) => (
+                    <option key={user._id} value={user.fullName}>{user.fullName}</option>
+                  ))}
+                </select>
+                {doctorError && <span className="error-message">{doctorError}</span>}
+              </div>
 
-            <div className="input-group">
-              <button className="btn-ll" type="submit">Book now</button>
+              <div className="input-group">
+                <button className="btn-ll" type="submit">Book now</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        )}
       </div>
 
       {appointments.length > 0 ? (
