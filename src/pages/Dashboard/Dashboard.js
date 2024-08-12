@@ -11,9 +11,21 @@ import { formVisibilityState } from "../../store/formState"; // استيراد �
 export default function Dashboard() {
   const [showForm, setShowForm] = useRecoilState(formVisibilityState); // استخدام الـ Atom للتحكم في الحالة
 
+  // دالة تغيير حالة الفورم
   function toggleFormVisibility() {
-    setShowForm(prevState => !prevState); // عكس الحالة الحالية للفورم
+    const newState = !showForm;
+    setShowForm(newState);
+    localStorage.setItem('formVisibilityState', JSON.stringify(newState)); // تخزين الحالة في localStorage
   }
+
+  // استخدام useEffect لاسترجاع الحالة من localStorage عند تحميل الصفحة
+  useEffect(() => {
+    const storedVisibility = JSON.parse(localStorage.getItem('formVisibilityState'));
+    if (storedVisibility !== null) {
+      setShowForm(storedVisibility); // تحديث الحالة بناءً على القيمة المخزنة
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
