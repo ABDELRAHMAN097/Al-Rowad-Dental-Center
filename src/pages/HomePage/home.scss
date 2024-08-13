@@ -38,6 +38,13 @@
       margin-top: 5px;
     }
   }
+  @media screen and (max-width: 767px){
+    .margin-select{
+      margin-left: 5px;
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
   .search:hover {
     background-color: var(--mainFont-color);
   }

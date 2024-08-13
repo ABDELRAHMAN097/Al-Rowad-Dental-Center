@@ -153,7 +153,7 @@ export default function HomePage() {
               <div>
                 <MdLocationOn className="icon-location" />
               </div>
-              <select>
+              <select className="margin-select">
                 <option value="first">Location</option>
                 <option value="second">Los Angeles</option>
                 <option value="third">New York City</option>
@@ -162,7 +162,7 @@ export default function HomePage() {
               <div>
                 <BsPersonFillAdd className="icon-doctor" />
               </div>
-              <select>
+              <select className="margin-select">
                 <option value="first">Doctor</option>
                 <option value="second">Gynecology</option>
                 <option value="third">Cardiologist</option>
