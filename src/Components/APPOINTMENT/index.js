@@ -165,7 +165,7 @@ export default function Index() {
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder=":name"
+                  placeholder="name"
                 />
                 {nameError && <span className="error-message">{nameError}</span>}
               </div>
