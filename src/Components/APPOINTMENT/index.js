@@ -213,7 +213,7 @@ export default function Index() {
               </div>
 
               <div className="input-group">
-                <button className="btn-ll" type="submit">Book now</button>
+                <button className="py-1 btn-ll" type="submit">Book now</button>
               </div>
             </div>
           </form>
