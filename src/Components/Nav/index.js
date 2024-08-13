@@ -62,7 +62,7 @@ export default function Navbar() {
                   </Link>
                 ) : (
                   <Link
-                    className="btn py-1 px-3 md:ml-3 rounded md:static text-white"
+                    className="btn rounded-full py-1 px-3 md:ml-3 md:static text-white"
                     to="/APPOINTMENT"
                   >
                   Appointment
