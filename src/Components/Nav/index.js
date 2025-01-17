@@ -28,7 +28,7 @@ export default function Navbar() {
           )}
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-19 absolute md:static md:z-auto z-[2] left-0 w-full md:w-auto md:pl-0 pl-11 bg-white transition-all duration-500 ease-in ${
+          className={`md:flex md:items-center md:pb-0 pb-19 absolute md:static md:z-auto z-[2] left-0 w-full md:w-auto md:pl-0 pl-10 bg-white transition-all duration-500 ease-in ${
             isopen ? "top-14" : "top-[-490px]"
           }`}
         >

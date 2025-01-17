@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Appointment.scss";
 import appointPhoto from '../../assets/img/appointment.jpg';
-import close from '../../assets/img/close.png'
 import axios from "axios";
 import { toast } from "react-toastify";
 import { RingLoader } from "react-spinners";
-import { useRecoilValue } from "recoil";
-import { formVisibilityState } from "../../store/formState"; 
+// import close from '../../assets/img/close.png'
+// import { useRecoilValue } from "recoil";
+// import { formVisibilityState } from "../../store/formState"; 
 
 export default function Index() {
-  const showForm = useRecoilValue(formVisibilityState);
+  // const showForm = useRecoilValue(formVisibilityState);
   const [users, setUsers] = useState([]);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -151,8 +151,7 @@ export default function Index() {
           Email. We look forward to serving you and providing you with appropriate health care.
         </p>
 
-        {showForm ? (
-          <form onSubmit={handelAppointment}>
+        <form onSubmit={handelAppointment}>
             <div className="appoint-photo">
               <img src={appointPhoto} alt="appointPhoto" />
             </div>
@@ -217,10 +216,6 @@ export default function Index() {
               </div>
             </div>
           </form>
-        ):(
-          <img src={close} alt="" />
-        )
-      }
       </div>
 
       {appointments.length > 0 ? (

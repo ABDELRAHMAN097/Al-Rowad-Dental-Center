@@ -6,26 +6,23 @@ import { toast } from "react-toastify";
 import { RingLoader } from "react-spinners";
 import $AuthData from "../../store/index";
 import { useRecoilState } from "recoil";
-import { formVisibilityState } from "../../store/formState"; // استيراد الـ Atom
+// import { formVisibilityState } from "../../store/formState"; 
 
 export default function Dashboard() {
-  const [showForm, setShowForm] = useRecoilState(formVisibilityState); // استخدام الـ Atom للتحكم في الحالة
+  // const [showForm, setShowForm] = useRecoilState(formVisibilityState); 
 
-  // دالة تغيير حالة الفورم
-  function toggleFormVisibility() {
-    const newState = !showForm;
-    setShowForm(newState);
-    localStorage.setItem('formVisibilityState', JSON.stringify(newState)); // تخزين الحالة في localStorage
-  }
+  // function toggleFormVisibility() {
+  //   const newState = !showForm;
+  //   setShowForm(newState);
+  //   localStorage.setItem('formVisibilityState', JSON.stringify(newState));
+  // }
 
-  // استخدام useEffect لاسترجاع الحالة من localStorage عند تحميل الصفحة
-  useEffect(() => {
-    const storedVisibility = JSON.parse(localStorage.getItem('formVisibilityState'));
-    if (storedVisibility !== null) {
-      setShowForm(storedVisibility); // تحديث الحالة بناءً على القيمة المخزنة
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const storedVisibility = JSON.parse(localStorage.getItem('formVisibilityState'));
+  //   if (storedVisibility !== null) {
+  //     setShowForm(storedVisibility); 
+  //   }
+  // }, []);
 
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -96,9 +93,9 @@ export default function Dashboard() {
       </div>
 
       <div className="w-100">
-        <button className="btn-users mb-3" onClick={toggleFormVisibility}>
+        {/* <button className="btn-users mb-3" onClick={toggleFormVisibility}>
           {showForm ? "Hide Form" : "Show Form"}
-        </button>
+        </button> */}
         {appointments.length > 0 && (
           <div className="table-data">
             <table className="w-100">
