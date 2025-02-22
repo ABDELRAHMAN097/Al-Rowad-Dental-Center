@@ -60,7 +60,7 @@ export default function index() {
           Al Rowad Dental Center is compliant with OSHA standards. We follow strict sterilization protocols and standards in all our operations. Our employees receive regular training on OSHA regulations to stay up to date on recent changes. We have 12 staff dentists, 15 associate dentists, hygienists, nurses, 3 secretaries, and 2 office staff.
           </p>
         </div>
-        <div className="doctors className='wow animate__animated animate__fadeInDownBig animate__slow 1s'">
+        <div className="doctors wow animate__animated animate__fadeInDownBig animate__slow 1s">
           {users.map((user) => (
             <div key={user._id} className="doctor">
               <img src={photo} alt="doc-1" />
